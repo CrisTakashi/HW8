@@ -1,6 +1,6 @@
 /******************************************************************
  *
- *   YOUR NAME / SECTION NUMBER
+ *   Cristian Arroyo / 001
  *
  *   Note, additional comments provided throughout this source code
  *   is for educational purposes
@@ -101,10 +101,27 @@ public class Graph {
    * and/or more than one root vertex, then return -1.
    * 
    */
-  
-  public int findRoot() {
 
-    // ADD YOUR CODE HERE - DO NOT FORGET TO ADD YOUR NAME/SECTION AT TOP OF FILE
-    return -1;
-  } 
+  public int findRoot() {
+    int[] indegree = new int[numVertices];
+
+    // Calculate in-degree of each vertex
+    for (int i = 0; i < numVertices; i++) {
+      for (int dest : adjListArr[i]) {
+        indegree[dest]++;
+      }
+    }
+
+    int rootIndex = -1;
+    for (int i = 0; i < numVertices; i++) {
+      if (indegree[i] == 0) {
+        if (rootIndex != -1) {
+          return -1;  // More than one root
+        }
+        rootIndex = i;
+      }
+    }
+
+    return (rootIndex == -1) ? -1 : vertexValues.get(rootIndex);
+  }
 }
