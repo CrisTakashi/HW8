@@ -1,6 +1,6 @@
 /******************************************************************
  *
- *   Cristian Arroyo / 001
+ *   Cristian Arroyo /001
  *
  *   Note, additional comments provided throughout this source code
  *   is for educational purposes
@@ -124,4 +124,5 @@ public class Graph {
 
     return (rootIndex == -1) ? -1 : vertexValues.get(rootIndex);
   }
+
 }
